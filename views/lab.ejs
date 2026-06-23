@@ -1,139 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cheesy Lab</title>
 </head>
 <body>
-    <h1>Welcome to the Cheesy Lab!</h1>
-    <p>Here you can experiment with different cheese recipes and flavors.</p>
-    <h3>Ingredients</h3>
-    <form id="ingredients-list" action="#" method="POST">
-        <fieldset>
-            <legend>Size</legend>
-            <label >
-                <input type="radio" class="size recipe-item" name="size" value="small" id="small">
-                Small
-            </label>
-            
-            <label>
-                <input type="radio" class="size recipe-item" name="size" value="medium" id="medium">
-                Medium
-            </label>
 
-            <label>
-                <input type="radio" class="size recipe-item" name="size" value="large" id="large">
-                Large
-            </label>
+        <h1>Welcome to the Cheesy Lab!</h1>
+        <p>Build a pizza by choosing exactly one item from each category.</p>
+
+        <form id="ingredients-list" action="#" method="POST">
+
+             <fieldset>
+                <legend>Size</legend>
+                <label>
+                    <input type="radio" class="size" name="size" value="Small" id="small">
+                    Small
+                </label>
+                <label>
+                    <input type="radio" class="size" name="size" value="Medium" id="medium">
+                    Medium
+                </label>
+                <label>
+                    <input type="radio" class="size" name="size" value="Large" id="large">
+                    Large
+                </label>
             </fieldset>
 
-        <fieldset>
-            <legend>Crust</legend>
-            <label >
-                <input type="radio" class="crust recipe-item" name="crust" value="Classic Dough" data-tag="balanced">
-                Classic Dough
-            </label>
-            
-            <label>
-                <input type="radio" class="crust recipe-item" name="crust" value="Stuffed Dough" data-tag="cheesy">
-                Stuffed Dough
-            </label>
+            <fieldset>
+                <legend>Crust</legend>
+                <label>
+                    <input type="radio" class="crust recipe-item" name="crust" value="Classic Dough" data-tag="fresh">
+                    Classic Dough
+                </label>
+                <label>
+                    <input type="radio" class="crust recipe-item" name="crust" value="Stuffed Dough" data-tag="rich">
+                    Stuffed Dough
+                </label>
+                <label>
+                    <input type="radio" class="crust recipe-item" name="crust" value="Charcoal Dough" data-tag="chaos">
+                    Charcoal Dough
+                </label>
+                <label>
+                    <input type="radio" class="crust recipe-item" name="crust" value="Thin Crust" data-tag="fresh">
+                    Thin Crust
+                </label>
+                <label>
+                    <input type="radio" class="crust recipe-item" name="crust" value="Volcano Crust" data-tag="spicy">
+                    Volcano Crust
+                </label>
+            </fieldset>
 
-            <label>
-                <input type="radio" class="crust recipe-item" name="crust" value="Charcoal Dough" data-tag="chaos">
-                Charcoal Dough
-            </label>
-        </fieldset>
+            <fieldset>
+                <legend>Sauce</legend>
+                <label>
+                    <input type="radio" class="sauce recipe-item" name="sauce" value="Tomato" data-tag="fresh">
+                    Tomato Sauce
+                </label>
+                <label>
+                    <input type="radio" class="sauce recipe-item" name="sauce" value="BBQ" data-tag="rich">
+                    BBQ Sauce
+                </label>
+                <label>
+                    <input type="radio" class="sauce recipe-item" name="sauce" value="Lava" data-tag="spicy">
+                    Lava Sauce
+                </label>
+                <label>
+                    <input type="radio" class="sauce recipe-item" name="sauce" value="Mushroom" data-tag="earthy">
+                    Mushroom Sauce
+                </label>
+                <label>
+                    <input type="radio" class="sauce recipe-item" name="sauce" value="Mystery" data-tag="chaos">
+                    Mystery Sauce
+                </label>
+            </fieldset>
 
-         <fieldset>
-            <legend>Sauce</legend>
-            <label >
-                <input type="radio" class="sauce recipe-item" name="sauce" value="Tomato" data-tag="balanced">
-                Tomato Sauce
-            </label>
+            <fieldset>
+                <legend>Cheese</legend>
+                <label>
+                    <input type="radio" class="cheese recipe-item" name="cheese" value="Mozzarella" data-tag="fresh">
+                    Mozzarella
+                </label>
+                <label>
+                    <input type="radio" class="cheese recipe-item" name="cheese" value="Cheddar" data-tag="rich">
+                    Cheddar
+                </label>
+                <label>
+                    <input type="radio" class="cheese recipe-item" name="cheese" value="Parmesan" data-tag="rich">
+                    Parmesan
+                </label>
+                <label>
+                    <input type="radio" class="cheese recipe-item" name="cheese" value="Paneer" data-tag="earthy">
+                    Paneer
+                </label>
+                <label>
+                    <input type="radio" class="cheese recipe-item" name="cheese" value="Nuclear Cheese" data-tag="chaos">
+                    Nuclear Cheese
+                </label>
+            </fieldset>
 
-            <label>
-                <input type="radio" class="sauce recipe-item" name="sauce" value="BBQ" data-tag="smoky">
-                BBQ Sauce
-            </label>
+            <fieldset>
+                <legend>Topping</legend>
+                <label>
+                    <input type="checkbox" class="topping recipe-item" name="topping" value="Pepperoni" data-tag="spicy">
+                    Pepperoni
+                </label>
+                <label>
+                    <input type="checkbox" class="topping recipe-item" name="topping" value="Chicken" data-tag="rich">
+                    Chicken
+                </label>
+                <label>
+                    <input type="checkbox" class="topping recipe-item" name="topping" value="Mushroom" data-tag="earthy">
+                    Mushroom
+                </label>
+                <label>
+                    <input type="checkbox" class="topping recipe-item" name="topping" value="Olives" data-tag="fresh">
+                    Olives
+                </label>
+                <label>
+                    <input type="checkbox" class="topping recipe-item" name="topping" value="Pineapple" data-tag="chaos">
+                    Pineapple
+                </label>
+            </fieldset>
 
-            <label>
-                <input type="radio" class="sauce" name="sauce" value="Lava" data-tag="spicy">
-                Lava Sauce
-            </label>
-        </fieldset>
-
-        <fieldset>
-            <legend>Toppings</legend>
-            <label >
-                <input type="checkbox" class="topping recipe-item" name="topping" value="Pepperoni" data-tag="meat">
-                Pepperoni
-            </label>
-
-            <label>
-                <input type="checkbox" class="topping recipe-item" name="topping" value="Chicken" data-tag="meat">
-                Chicken
-            </label>
-
-            <label>
-                <input type="checkbox" class="topping recipe-item" name="topping" value="Paneer" data-tag="veg">
-                Paneer
-            </label>
-
-            <label>
-                <input type="checkbox" class="topping recipe-item" name="topping" value="Mushroom" data-tag="earthy">
-                Mushroom
-            </label>
-
-            <label>
-                <input type="checkbox" class="topping recipe-item" name="topping" value="Pineapple" data-tag="chaos">
-                Pineapple
-            </label>
-        </fieldset>
-
-        <fieldset>
-            <legend>Cheese</legend>
-            <label >
-                <input type="radio" class="cheese recipe-item" name="cheese" value="Mozzarella" data-tag="cheesy">
-                Mozzarella
-            </label>
-
-            <label>
-                <input type="radio" class="cheese recipe-item" name="cheese" value="Cheddar" data-tag="rich">
-                Cheddar
-            </label>
-
-            <label>
-                <input type="radio" class="cheese recipe-item" name="cheese" value="Nuclear Cheese" data-tag="chaos">
-                Nuclear Cheese
-            </label>
-        </fieldset>
-
-        <fieldset>
-            <legend>Seasoning</legend>
-            <label >
-                <input type="radio" class="seasoning recipe-item" name="seasoning" value="Oregano" data-tag="balanced">
-                Oregano
-            </label>
-
-            <label>
-                <input type="radio" class="seasoning recipe-item" name="seasoning" value="Chilli Flakes" data-tag="spicy">
-                Chilli Flakes
-            </label>
-
-            <label>
-                <input type="radio" class="seasoning recipe-item" name="seasoning" value="Chaos Dust" data-tag="chaos">
-                Chaos Dust
-            </label>
-        </fieldset>
+            <fieldset>
+                <legend>Seasoning</legend>
+                <label>
+                    <input type="radio" class="seasoning recipe-item" name="seasoning" value="Oregano" data-tag="fresh">
+                    Oregano
+                </label>
+                <label>
+                    <input type="radio" class="seasoning recipe-item" name="seasoning" value="Chilli Flakes" data-tag="spicy">
+                    Chilli Flakes
+                </label>
+                <label>
+                    <input type="radio"class="seasoning recipe-item" name="seasoning" value="Black Pepper" data-tag="earthy">
+                    Black Pepper
+                </label>
+                <label>
+                    <input type="radio" class="seasoning recipe-item" name="seasoning" value="Garlic Dust" data-tag="rich">
+                    Garlic Dust
+                </label>
+                <label>
+                    <input type="radio" class="seasoning recipe-item" name="seasoning" value="Chaos Dust" data-tag="chaos">
+                    Chaos Dust
+                </label>
+            </fieldset>
 
             <button type="submit">Make Pizza</button>
-        </fieldset>
-    </form>
-    <div class="baked-pizza" id="result"></div>
-    <div class="order-complete" id="pizza-ready"></div>
+        </form>
 
+        <div class="baked-pizza" id="result"></div> 
+        <div class="order-complete" id="pizza-ready"></div>
 
     <script src="/script.js"></script>
 </body>

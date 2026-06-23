@@ -2,74 +2,71 @@ const form = document.getElementById("ingredients-list");
 const result = document.getElementById("result");
 const baked = document.getElementById("pizza-ready");
 
-// let vegCount = 0;
-// let meatCount = 0;
-// let earthyCount = 0;
-// let spicyCount = 0;
-// let chaosCount = 0;
-// let balancedCount = 0;
-// let cheesyCount = 0;
-
-//PIZZA ORDER HANDLER
-
 form.addEventListener("submit", function (event) {
     event.preventDefault();
 
+    // 5 core traits, score calculations
     const scores = {
-    spicy: 0,
-    meat: 0,
-    veg: 0,
-    rich: 0,
-    balanced: 0,
-    chaos: 0,
-    earthy: 0,
-    cheesy: 0,
-    smoky: 0
-}
+        spicy: 0,
+        rich: 0,
+        fresh: 0,
+        earthy: 0,
+        chaos: 0
+    };
 
-    // Get selected options
-    const sizeInput = document.querySelector('input[name="size"]:checked');
+    // Get exactly one choice from each category
+    const sizeInput = document.querySelector('input[name="size"]:checked'); 
     const crust = document.querySelector('input[name="crust"]:checked');
+    const sauce = document.querySelector('input[name="sauce"]:checked');
     const cheese = document.querySelector('input[name="cheese"]:checked');
     const seasoning = document.querySelector('input[name="seasoning"]:checked');
-    const sauce = document.querySelector('input[name="sauce"]:checked');
 
-    // Get all selected choice driven multiple toppings
+    // Get all selected choice driven multiple toppings 
     const toppingChoices = document.querySelectorAll(".topping");
-    const toppings = [];
+    const toppings = []; 
     const traits = [];
-
+    
     form.querySelectorAll(".recipe-item").forEach((checkbox) => {
-    if (checkbox.checked) {
-        traits.push(checkbox.getAttribute("data-tag"));
+         if (checkbox.checked) { 
+            traits.push(checkbox.getAttribute("data-tag")); 
         }
     });
 
     toppingChoices.forEach((checkbox) => {
-        if (checkbox.checked) {
-            toppings.push(checkbox.value);
-        }
+         if (checkbox.checked) {
+             toppings.push(checkbox.value); 
+        } 
     });
 
-    //TRAITS CALCULATOR
-    traits.forEach(trait => {
+    // TRAITS CALCULATOR 
+    traits.forEach(trait => { 
         scores[trait]++;
     });
 
     // Validation
-    if (!sizeInput) {
+    if (!sizeInput) { 
         result.textContent = "Please select a size.";
-        return;
+        return; 
     }
 
-    if (!crust) {
+    if (!crust) { 
         result.textContent = "Please select a crust.";
-        return;
+        return; 
     }
 
-    if (!sauce) {
+    if (!sauce) { 
         result.textContent = "Please select a sauce.";
-        return;
+        return; 
+    }
+
+    if (!cheese) { 
+        result.textContent = "Please select a cheese.";
+        return; 
+    }
+
+    if (!seasoning) { 
+        result.textContent = "Please select a seasoning.";
+        return; 
     }
 
     if (toppings.length === 0) {
@@ -77,188 +74,213 @@ form.addEventListener("submit", function (event) {
         return;
     }
 
-    // if (!cheese && !seasoning) { pizzaText = You ordered a ${sizeInput.value} pizza with ${crust.value} crust; } else if (!cheese && seasoning) { pizzaText = You ordered a ${sizeInput.value} pizza with ${crust.value} crust, seasoned with ${seasoning.value}; } else if (cheese && !seasoning) { pizzaText = You ordered a ${sizeInput.value} pizza with ${crust.value} crust and ${cheese.value} cheese; } else { pizzaText = You ordered a ${sizeInput.value} pizza with ${crust.value} crust and ${cheese.value} cheese, seasoned with ${seasoning.value}; }
-
-    // CREATE PIZZA OBJECT
+    // Pizza Object
     const pizza = {
         size: sizeInput.value,
         crust: crust.value,
         sauce: sauce.value,
-        cheese: cheese ? cheese.value : null,
-        seasoning: seasoning ? seasoning.value : null,
-        toppings: toppings
+        cheese: cheese.value,
+        toppings: toppings,
+        seasoning: seasoning.value
     };
 
     // Build result dialogue
-    let pizzaText = `You ordered a ${pizza.size} pizza with ${pizza.crust} crust`;
+    const pizzaText =  `You ordered a ${pizza.size} pizza with ${pizza.crust} crust, ${pizza.sauce} sauce, ${pizza.cheese} cheese, toppings: ${pizza.toppings.join(", ")}, and ${pizza.seasoning} seasoning.`;
 
-    if (pizza.cheese) {
-        pizzaText += ` and ${pizza.cheese} cheese`;
-    }
+    result.innerHTML = 
+    `<h3>Your Pizza</h3>
+    <p>${pizzaText}</p>`;
 
-    if (pizza.seasoning) {
-        pizzaText += ` seasoned with ${pizza.seasoning}`;
-    }
+    // if (!cheese && !seasoning) { pizzaText = You ordered a ${sizeInput.value} pizza with ${crust.value} crust; } else if (!cheese && seasoning) { pizzaText = You ordered a ${sizeInput.value} pizza with ${crust.value} crust, seasoned with ${seasoning.value}; } else if (cheese && !seasoning) { pizzaText = You ordered a ${sizeInput.value} pizza with ${crust.value} crust and ${cheese.value} cheese; } else { pizzaText = You ordered a ${sizeInput.value} pizza with ${crust.value} crust and ${cheese.value} cheese, seasoned with ${seasoning.value}; }
 
-    pizzaText += ` with ${pizza.sauce} sauce and toppings: ${pizza.toppings.join(", ")}`;
+    console.log(scores);
 
-    // Display result
-    result.innerHTML = `
-        <h3>Your Pizza</h3>
-        <p>${pizzaText}</p>
-    `;
-
-    // console.log(pizza);
-    // console.log(traits);
-    // console.log(scores);    
-    
-    //PIZZA TYPE CALCULATOR
+    //PIZZA TYPE CALCULATOR 
     let highest = 0;
     let secondHighest = 0;
-
     let dominantTrait = "";
     let secondTrait = "";
-
     for (const trait in scores) {
-    console.log("\nChecking:", trait);
-    console.log("Score:", scores[trait]);
-    console.log("Current Highest:", highest);
-    console.log("Current Second Highest:", secondHighest);
-    const score = scores[trait];
-    if (score > highest) {
-
-        secondHighest = highest;
-        secondTrait = dominantTrait;
-
-        highest = score;
-        dominantTrait = trait;
-
-        console.log("➡ New Highest Found");
-        console.log("Highest:", dominantTrait, highest);
-        console.log("Second:", secondTrait, secondHighest); 
-    }
-
-    else if (score > secondHighest) {
-
-        secondHighest = score;
-        secondTrait = trait;
-
-        console.log("➡ New Second Highest Found");
-        console.log("Second:", secondTrait, secondHighest);
-
-    }
-
-}
-
-    //PIZZA PERSONALITY 
-
-    const pizzaTypes = {
-        meat: {
-            type: "Basic",
-            name: "Meat Pizza",
-            description: "meat.",
-            Badge: "meat.",
-            Title: "meat."
-        },
-        veg: {
-            type: "Basic",
-            name: "Veg Pizza",
-            description: "veg.",
-            Badge: "veg",
-            Title: "veg"
-        },
-        cheesy: {
-            type: "Basic",
-            name: "Cheese Pizza",
-            description: "cheese.",
-            Badge: "cheese",
-            Title: "cheese"
-        },
-        rich: {
-            type: "Basic",
-            name: "Rich Pizza",
-            description: "rich.",
-            Badge: "rich",
-            Title: "rich"
-        },
-        balanced: {
-            type: "Basic",
-            name: "Balanced Pizza",
-            description: "balanced.",
-            Badge: "balanced",
-            Title: "balanced"
-        },
-        smoky: {
-            type: "Basic",
-            name: "Smoky Pizza",
-            description: "smoky.",
-            Badge: "smoky",
-            Title: "smoky"
-        },
-        earthy: {
-            type: "Basic",
-            name: "Earthy Pizza",
-            description: "earthy.'",
-            Badge: "earthy",
-            Title: "earthy"
-        },
-        spicy: {
-            type: "Basic",
-            name: "Spicy Pizza",
-            description: "spicy.",
-            Badge: "spicy",
-            Title: "spicy"
-        },
-        chaos: {
-            type: "Basic",
-            name: "Chaos Pizza",
-            description: "chaos.",
-            Badge: "chaos",
-            Title: "chaos"
-        },
-        mystery: {
-            type: "Custom",
-            name: "Mystery Pizza",
-            description: "mystery.",
-            Badge: "mystery",
-            Title: "mystery"
+        console.log("\nChecking:", trait);
+        console.log("Score:", scores[trait]);
+        console.log("Current Highest:", highest);
+        console.log("Current Second Highest:", secondHighest);
+        const score = scores[trait];
+        if (score > highest) {
+            secondHighest = highest;
+            secondTrait = dominantTrait;
+            highest = score;
+            dominantTrait = trait;
+            console.log("New Highest Found");
+            console.log("Highest:", dominantTrait, highest);
+            console.log("Second:", secondTrait, secondHighest);
+        }else if (score > secondHighest) {
+            secondHighest = score;
+            secondTrait = trait;
+            console.log("New Second Highest Found");
+            console.log("Second:", secondTrait, secondHighest);
         }
     }
 
-    //HYBRID PIZZA PERSONALITY 
-
-    const hybridPizzaTypes = {
-        "meat-spicy": {
-            type: "Hybrid",
-            name: "Meat Spicy Pizza",
-            description: "a delicious blend of meat and spice.",
-            Badge: "meat-spicy",
-            Title: "Meat Spicy"
+    //PIZZA PERSONALITY
+            //Basic Pizzas
+    const pizzaTypes = {
+        
+        spicy:{
+            type: "BASIC",
+            name: "Dragon's Tax Envasion",
+            title: "Flame Auditor",
+            description: "Authorities are still investigating how this pizza got so hot without a permit.",
+            badge: ""
         },
-        "veg-earthy": {
-            type: "Hybrid",
-            name: "Veg Earthy Pizza",
-            description: "a delicious blend of vegetables and earthy flavors.",
-            Badge: "veg-earthy",
-            Title: "Veg Earthy"
+        rich:{
+            type: "BASIC",
+            name: "The Cheese Cartel",
+            title: "Dairy Baron",
+            description: "Contains enough luxury to destabilize several local economies.",
+            badge: ""
         },
-        "cheesy-rich": {
-            type: "Hybrid",
-            name: "Cheesy Rich Pizza",  
+        fresh:{
+            type: "BASIC",
+            name: "Touch Grass Supreme",
+            title: "Outdoor Enthusiast",
+            description: "A rare pizza crafted by someone who occasionally leaves their room.",
+            badge: ""
+        },
+        earthy:{
+            type: "BASIC",
+            name: "The Forest Council",
+            title: "Keeper of the Shrooms",
+            description: "Approved by woodland creatures and at least three suspicious wizards.",
+            badge: ""
+        },
+        chaos:{
+            type: "BASIC",
+            name: "The Oven Incident",
+            title: "Agent of Mayhem",
+            description: "Nobody knows what happened. The oven refuses to comment.",
+            badge: ""
+        },
+        mystery: {
+        type: "SPECIAL",
+        name: "The Developer Forgot To Account For This",
+        title: "Unintentional Pioneer",
+        description: "You discovered a pizza that exists purely because the code gave up.",
+        badge: ""
+        }
     }
 
-    //Build Baked Pizza Dialogue
-    
-    const bakedPizza = pizzaTypes[dominantTrait] || pizzaTypes["mystery"];
+            //Hybrid Pizzas
+    const pizzaHybridTypes = {
 
-    //BAKE PIZZA
+        "rich-spicy":{
+            type: "HYBRID",
+            name: "Molten Billionaire",
+            title: "Volcano Venture Capitalist",
+            description: "Rich enough to buy a volcano. Dumb enough to live inside it.",
+            badge: ""
+        },
+        "fresh-spicy":{
+            type: "HYBRID",
+            name: "Grassfire Season",
+            title: "Certified Arson Gardener",
+            description: "A healthy lifestyle choice that somehow escalated into arson.",
+            badge: ""
+        },
+        "earthy-spicy":{
+            type: "HYBRID",
+            name: "Goblin BBQ",
+            title: "Forest Menace",
+            description: "Smells like a forest picnic. Tastes like an ambush encounter.",
+            badge: ""
+        },
+        "chaos-spicy":{
+            type: "HYBRID",
+            name: "Patch Notes Not Found",
+            title: "Professional Bug Creator",
+            description: "Every bite introduces a new bug. None of them are being fixed.",
+            badge: ""
+        },
+        "fresh-rich":{
+            type: "HYBRID",
+            name: "Premium Air Subscription",
+            title: "CEO of Breathing",
+            description: "Somehow convinced people to pay extra for things they already had.",
+            badge: ""
+        },
+        "rich-earthy": {
+            type: "HYBRID",
+            name: "Mushroom Tycoon",
+            title: "Underground Billionaire",
+            description: "Started with one mushroom. Built an empire. Refuses to elaborate.",
+            badge: ""
+        },
+        "chaos-rich":{
+            type: "HYBRID",
+            name: "Crypto Crust",
+            title: "Chief Financial Mistake",
+            description: "Looked valuable yesterday. Nobody knows what happened today.",
+            badge: ""
+        },
+        "fresh-earthy":{
+            type: "HYBRID",
+            name: "Nature's WiFi",
+            title: "Receiver of Leaf Messages",
+            description: "Connection strength: excellent. Social skills: still loading.",
+            badge: ""
+        },
+        "chaos-fresh": {
+            type: "HYBRID",
+            name: "Certified Weird Flex",
+            title: "Reality Tester",
+            description: "This pizza shouldn't work. Unfortunately, it absolutely does.",
+            badge: ""
+        },
+        "chaos-earthy": {
+            type: "HYBRID",
+            name: "Forbidden Compost",
+            title: "Archdruid of Garbage",
+            description: "A dark ritual was performed. The vegetables won.",
+            badge: ""
+        }
+    }
 
-    baked.innerHTML = `
-    <h3>Your Pizza Type</h3>
-    <p>You got a <b>${bakedPizza.name}</b>! <br/> Description: ${bakedPizza.description}</p> <br/> Badge: ${bakedPizza.Badge} <br/> Title: ${bakedPizza.Title}`;
-
+            //Secret Recipes
+        const secretRecipe = {
+            "top-secret-1":{
+                type: "EPIC",
+                name: "The Nuclear Option",
+                title: "Nuclear Scientist",
+                description: "Several scientists advised against this. You baked it anyway.",
+                badge: ""
+            },
+            "top-secret-2":{
+                type: "EPIC",
+                name: "Touch Grass",
+                title: "Environment Enthusiast",
+                description: "The first pizza recommended by 9 out of 10 concerned parents.",
+                badge: ""
+            },
+            "top-secret-3":{
+                type: "EPIC",
+                name: "Boss Fight Phase 2",
+                title: "Have you played sekiro, both causes same consequences",
+                description: "This made me break the 4th wall.",
+                badge: ""
+            },
+            "top-secret-4":{
+                type: "EPIC",
+                name: "The Italian Nightmare",
+                title: "Banished By Italy, Wanted By All",
+                description: "Somewhere, a chef just felt a disturbance in the force.",
+                badge: ""
+            },
+            "top-secret-5":{
+                type: "EPIC",
+                name: "Chaotic Lover",
+                title: "Undecisive Final Boss",
+                description: "Want everything huh?",
+                badge: ""
+            }
+        }
 });
-
-
-
-
