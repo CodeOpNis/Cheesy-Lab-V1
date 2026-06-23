@@ -225,35 +225,37 @@ form.addEventListener("submit", function (event) {
         }
     }
 
+    //HYBRID PIZZA PERSONALITY 
+
+    const hybridPizzaTypes = {
+        "meat-spicy": {
+            type: "Hybrid",
+            name: "Meat Spicy Pizza",
+            description: "a delicious blend of meat and spice.",
+            Badge: "meat-spicy",
+            Title: "Meat Spicy"
+        },
+        "veg-earthy": {
+            type: "Hybrid",
+            name: "Veg Earthy Pizza",
+            description: "a delicious blend of vegetables and earthy flavors.",
+            Badge: "veg-earthy",
+            Title: "Veg Earthy"
+        },
+        "cheesy-rich": {
+            type: "Hybrid",
+            name: "Cheesy Rich Pizza",  
+    }
+
     //Build Baked Pizza Dialogue
     
-    let pizzaBaked = ` `;
+    const bakedPizza = pizzaTypes[dominantTrait] || pizzaTypes["mystery"];
 
     //BAKE PIZZA
 
-    // if(dominantTrait == "meat"){
-    //     baked.innerHTML = `You baked a ${pizzaTypes.meat.name} pizza &nbsp; Type: ${pizzaTypes.meat.type} &nbsp;  Description: ${pizzaTypes.meat.description} &nbsp; Badge: ${pizzaTypes.meat.Badge}`;
-    // }else if(dominantTrait == "veg"){
-    //     baked.innerHTML = `You baked a ${pizzaTypes.veg.name} pizza &nbsp; Type: ${pizzaTypes.veg.type} &nbsp;  Description: ${pizzaTypes.veg.description} &nbsp; Badge: ${pizzaTypes.veg.Badge}`;
-    // }else if(dominantTrait == "cheesy"){
-    //     baked.innerHTML = `You baked a ${pizzaTypes.cheesy.name} pizza &nbsp; Type: ${pizzaTypes.cheesy.type} &nbsp;  Description: ${pizzaTypes.cheesy.description} &nbsp; Badge: ${pizzaTypes.cheesy.Badge}`;
-    // }else if(dominantTrait == "rich"){
-    //     baked.innerHTML = `You baked a ${pizzaTypes.rich.name} pizza &nbsp; Type: ${pizzaTypes.rich.type} &nbsp;  Description: ${pizzaTypes.rich.description} &nbsp; Badge: ${pizzaTypes.rich.Badge}`;
-    // }else if(dominantTrait == "balanced"){
-    //     baked.innerHTML = `You baked a ${pizzaTypes.balanced.name} pizza &nbsp; Type: ${pizzaTypes.balanced.type} &nbsp;  Description: ${pizzaTypes.balanced.description} &nbsp; Badge: ${pizzaTypes.balanced.Badge}`;
-    // }else if(dominantTrait == "smoky"){
-    //     baked.innerHTML = `You baked a ${pizzaTypes.smoky.name} pizza &nbsp; Type: ${pizzaTypes.smoky.type} &nbsp;  Description: ${pizzaTypes.smoky.description} &nbsp; Badge: ${pizzaTypes.smoky.Badge}`;
-    // }else if(dominantTrait == "earthy"){
-    //     baked.innerHTML = `You baked a ${pizzaTypes.earthy.name} pizza &nbsp; Type: ${pizzaTypes.earthy.type} &nbsp;  Description: ${pizzaTypes.earthy.description} &nbsp; Badge: ${pizzaTypes.earthy.Badge}`;
-    // }else if(dominantTrait == "spicy"){
-    //     baked.innerHTML = `You baked a ${pizzaTypes.spicy.name} pizza &nbsp; Type: ${pizzaTypes.spicy.type} &nbsp;  Description: ${pizzaTypes.spicy.description} &nbsp; Badge: ${pizzaTypes.spicy.Badge}`;
-    // }else if(dominantTrait == "chaos"){
-    //     baked.innerHTML = `You baked a ${pizzaTypes.chaos.name} pizza &nbsp; Type: ${pizzaTypes.chaos.type} &nbsp;  Description: ${pizzaTypes.chaos.description} &nbsp; Badge: ${pizzaTypes.chaos.Badge}`;
-    // }else{
-    //     baked.innerHTML = `You baked a ${pizzaTypes.mystery.name} pizza &nbsp; Type: ${pizzaTypes.mystery.type} &nbsp;  Description: ${pizzaTypes.mystery.description} &nbsp; Badge: ${pizzaTypes.mystery.Badge}`;
-    // }
-
-    
+    baked.innerHTML = `
+    <h3>Your Pizza Type</h3>
+    <p>You got a <b>${bakedPizza.name}</b>! <br/> Description: ${bakedPizza.description}</p> <br/> Badge: ${bakedPizza.Badge} <br/> Title: ${bakedPizza.Title}`;
 
 });
 
