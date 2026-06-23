@@ -283,4 +283,105 @@ form.addEventListener("submit", function (event) {
                 badge: ""
             }
         }
+
+                //Special Outcomes
+        const specialPizzaTypes = {
+            perfectBalance: {
+            type: "SPECIAL",
+            name: "Main Character Energy",
+            title: "Plot Armor Holder",
+            description: "Somehow balanced every flavor. The narrative has chosen you.",
+            badge: "",
+    }
+}
+
+     //BAKING PIZZA
+
+     let bakedPizza;
+
+     //Secret Pizza
+     if(   
+        pizza.crust === "Charcoal Dough" &&
+        pizza.sauce === "Mystery" &&
+        pizza.cheese === "Nuclear Cheese" &&
+        pizza.seasoning === "Chaos Dust" &&
+        pizza.toppings.includes("Pineapple")
+    ){
+        bakedPizza = secretRecipe["top-secret-1"];
+    }
+
+    else if(
+        pizza.crust === "Thin Crust" &&
+        pizza.sauce === "Tomato" &&
+        pizza.cheese === "Mozzarella" &&
+        pizza.seasoning === "Oregano" &&
+        pizza.toppings.includes("Olives")
+    ){
+        bakedPizza = secretRecipe["top-secret-2"];
+    }
+
+    else if(
+        pizza.crust === "Volcano Crust" &&
+        pizza.sauce === "Lava" &&
+        pizza.cheese === "Nuclear Cheese" &&
+        pizza.seasoning === "Chilli Flakes" &&
+        pizza.toppings.includes("Pepperoni")
+    ){
+        bakedPizza = secretRecipe["top-secret-3"];
+    }
+
+    else if( 
+    pizza.sauce === "Mystery" &&
+    pizza.cheese === "Nuclear Cheese" &&
+    pizza.toppings.includes("Pineapple")
+    ){
+        bakedPizza = secretRecipe["top-secret-4"];    
+    }
+
+    else if(
+        scores.chaos>=3
+    ){
+        bakedPizza = secretRecipe["top-secret-5"];
+    }
+
+    //Special Outcome
+    else if(
+    scores.spicy === 1 &&
+    scores.rich === 1 &&
+    scores.fresh === 1 &&
+    scores.earthy === 1 &&
+    scores.chaos === 1
+    ){
+        bakedPizza = specialPizzaTypes["perfectBalance"];
+    }
+
+    //Hybrid Pizza
+    else if(
+        highest === secondHighest
+    ){
+        const hybridKey = [dominantTrait, secondTrait].sort().join("-"); //hybrid key manager to sort so the key matches the exact defined one
+        bakedPizza = pizzaHybridTypes[hybridKey];
+    }
+
+    //Basic Pizza
+    else if (pizzaTypes[dominantTrait]
+    ){
+    bakedPizza = pizzaTypes[dominantTrait];
+    }   
+
+    //Fallback
+    else {
+    bakedPizza = pizzaTypes["mystery"];
+    }
+
+    baked.innerHTML = 
+    `<h3>Type: ${bakedPizza.type}</h3>
+    <p><b>${bakedPizza.name}</b></p>
+    <p>Title: ${bakedPizza.title}</p>
+    <p>${bakedPizza.description}</p>`
+
+    console.log("Highest:", highest);
+    console.log("Second Highest:", secondHighest);
+    console.log("Dominant:", dominantTrait);
+    console.log("Second:", secondTrait);
 });
