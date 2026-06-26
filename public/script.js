@@ -1,6 +1,102 @@
 const form = document.getElementById("ingredients-list");
 const result = document.getElementById("result");
 const baked = document.getElementById("pizza-ready");
+const saveBadge = {}
+
+    //Badges
+        const badges = {
+                    //Basic 
+            spicy:{
+                name: "Tax Dodger"
+            },
+            rich:{
+                name: "Daily Baron"
+            },
+            fresh:{
+                name: "Grass Toucher"
+            },
+            earthy:{
+                name: "Mushroom Elder"
+            },
+            chaos:{
+                name: "Kitchen Criminal"
+            },
+
+                    //Hybrid
+            "rich-spicy":{
+                name: "Lava Investor",
+            },
+            "fresh-spicy":{
+                name: "Controlled Burn",
+            },
+            "earthy-spicy":{
+                name: "Campfire Goblin",
+            },
+            "chaos-spicy":{
+                name: "Unstable Build",
+            },
+            "fresh-rich":{
+                name: "Oxygen Plus",
+            },
+            "earthy-rich":{
+                name: "CEO of Dirt",
+            },
+            "chaos-rich":{
+                name: "Rug Pull Expert",
+            },
+            "earthy-fresh":{
+                name: "Forest Signal",
+            },
+            "chaos-fresh":{
+                name: "Strange Achievement",
+            },
+            "chaos-earthy":{
+                name: "Compost Mage",
+            },
+            "mystery":{
+                name: "Song An"
+            },
+
+                    //Special
+            "perfectBalance": {
+                name: "Chosen One"
+            },
+
+                    //Secret
+            "nuclear-option":{
+                name: "Geneva Suggestion"
+            },
+            "touch-grass":{
+                name: "Outdoor Speedrunner"
+            },
+            "boss-fight":{
+                name: "Health Bar Removed"
+            },
+            "italian-nightmare":{
+                name: "Public Enemy #1"
+            },
+            "feature-bug":{
+                name: "QA Tester"
+            },
+        };
+
+
+function collectBadge(badgeId){
+
+    if(!saveBadge[badgeId]){
+        saveBadge[badgeId] = {
+            count: 1
+        };
+
+        console.log("New Badge Unlocked", badges[badgeId].name);
+        
+    }else{
+        saveBadge[badgeId].count++;
+
+        console.log(`${badges[badgeId].name} Obtained ${saveBadge[badgeId].count} times`);
+    };
+}
+
 
 form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -111,16 +207,19 @@ form.addEventListener("submit", function (event) {
             secondTrait = dominantTrait;
             highest = score;
             dominantTrait = trait;
-            console.log("New Highest Found");
-            console.log("Highest:", dominantTrait, highest);
-            console.log("Second:", secondTrait, secondHighest);
+            // console.log("New Highest Found");
+            // console.log("Highest:", dominantTrait, highest);
+            // console.log("Second:", secondTrait, secondHighest);
         }else if (score > secondHighest) {
             secondHighest = score;
             secondTrait = trait;
-            console.log("New Second Highest Found");
-            console.log("Second:", secondTrait, secondHighest);
+            // console.log("New Second Highest Found");
+            // console.log("Second:", secondTrait, secondHighest);
         }
     }
+
+    //Badge Save System
+   
 
     //PIZZA PERSONALITY
             //Basic Pizzas
@@ -131,42 +230,42 @@ form.addEventListener("submit", function (event) {
             name: "Dragon's Tax Envasion",
             title: "Flame Auditor",
             description: "Authorities are still investigating how this pizza got so hot without a permit.",
-            badge: ""
+            badge: "spicy"
         },
         rich:{
             type: "BASIC",
             name: "The Cheese Cartel",
             title: "Dairy Baron",
             description: "Contains enough luxury to destabilize several local economies.",
-            badge: ""
+            badge: "rich"
         },
         fresh:{
             type: "BASIC",
             name: "Touch Grass Supreme",
             title: "Outdoor Enthusiast",
             description: "A rare pizza crafted by someone who occasionally leaves their room.",
-            badge: ""
+            badge: "fresh"
         },
         earthy:{
             type: "BASIC",
             name: "The Forest Council",
             title: "Keeper of the Shrooms",
             description: "Approved by woodland creatures and at least three suspicious wizards.",
-            badge: ""
+            badge: "earthy"
         },
         chaos:{
             type: "BASIC",
             name: "The Oven Incident",
             title: "Agent of Mayhem",
             description: "Nobody knows what happened. The oven refuses to comment.",
-            badge: ""
+            badge: "chaos"
         },
         mystery: {
-        type: "SPECIAL",
-        name: "The Developer Forgot To Account For This",
-        title: "Unintentional Pioneer",
-        description: "You discovered a pizza that exists purely because the code gave up.",
-        badge: ""
+            type: "SPECIAL",
+            name: "The Developer Forgot To Account For This",
+            title: "Unintentional Pioneer",
+            description: "You discovered a pizza that exists purely because the code gave up.",
+            badge: "feature-bug"
         }
     }
 
@@ -178,70 +277,70 @@ form.addEventListener("submit", function (event) {
             name: "Molten Billionaire",
             title: "Volcano Venture Capitalist",
             description: "Rich enough to buy a volcano. Dumb enough to live inside it.",
-            badge: ""
+            badge: "rich-spicy"
         },
         "fresh-spicy":{
             type: "HYBRID",
             name: "Grassfire Season",
             title: "Certified Arson Gardener",
             description: "A healthy lifestyle choice that somehow escalated into arson.",
-            badge: ""
+            badge: "fresh-spicy"
         },
         "earthy-spicy":{
             type: "HYBRID",
             name: "Goblin BBQ",
             title: "Forest Menace",
             description: "Smells like a forest picnic. Tastes like an ambush encounter.",
-            badge: ""
+            badge: "earthy-spicy"
         },
         "chaos-spicy":{
             type: "HYBRID",
             name: "Patch Notes Not Found",
             title: "Professional Bug Creator",
             description: "Every bite introduces a new bug. None of them are being fixed.",
-            badge: ""
+            badge: "chaos-spicy"
         },
         "fresh-rich":{
             type: "HYBRID",
             name: "Premium Air Subscription",
             title: "CEO of Breathing",
             description: "Somehow convinced people to pay extra for things they already had.",
-            badge: ""
+            badge: "fresh-rich"
         },
-        "rich-earthy": {
+        "earthy-rich": {
             type: "HYBRID",
             name: "Mushroom Tycoon",
             title: "Underground Billionaire",
             description: "Started with one mushroom. Built an empire. Refuses to elaborate.",
-            badge: ""
+            badge: "rich-earthy"
         },
         "chaos-rich":{
             type: "HYBRID",
             name: "Crypto Crust",
             title: "Chief Financial Mistake",
             description: "Looked valuable yesterday. Nobody knows what happened today.",
-            badge: ""
+            badge: "chaos-rich"
         },
-        "fresh-earthy":{
+        "earthy-fresh":{
             type: "HYBRID",
             name: "Nature's WiFi",
             title: "Receiver of Leaf Messages",
             description: "Connection strength: excellent. Social skills: still loading.",
-            badge: ""
+            badge: "fresh-earthy"
         },
         "chaos-fresh": {
             type: "HYBRID",
             name: "Certified Weird Flex",
             title: "Reality Tester",
             description: "This pizza shouldn't work. Unfortunately, it absolutely does.",
-            badge: ""
+            badge: "chaos-fresh"
         },
         "chaos-earthy": {
             type: "HYBRID",
             name: "Forbidden Compost",
             title: "Archdruid of Garbage",
             description: "A dark ritual was performed. The vegetables won.",
-            badge: ""
+            badge: "chaos-earthy"
         }
     }
 
@@ -252,46 +351,46 @@ form.addEventListener("submit", function (event) {
                 name: "The Nuclear Option",
                 title: "Nuclear Scientist",
                 description: "Several scientists advised against this. You baked it anyway.",
-                badge: ""
+                badge: "nuclear-option"
             },
             "top-secret-2":{
                 type: "EPIC",
                 name: "Touch Grass",
                 title: "Environment Enthusiast",
                 description: "The first pizza recommended by 9 out of 10 concerned parents.",
-                badge: ""
+                badge: "touch-grass"
             },
             "top-secret-3":{
                 type: "EPIC",
                 name: "Boss Fight Phase 2",
                 title: "Have you played sekiro, both causes same consequences",
                 description: "This made me break the 4th wall.",
-                badge: ""
+                badge: "boss-fight"
             },
             "top-secret-4":{
                 type: "EPIC",
                 name: "The Italian Nightmare",
                 title: "Banished By Italy, Wanted By All",
                 description: "Somewhere, a chef just felt a disturbance in the force.",
-                badge: ""
+                badge: "italian-nightmare"
             },
             "top-secret-5":{
                 type: "EPIC",
                 name: "Chaotic Lover",
                 title: "Undecisive Final Boss",
                 description: "Want everything huh?",
-                badge: ""
+                badge: "feature-bug"
             }
         }
 
                 //Special Outcomes
         const specialPizzaTypes = {
-            perfectBalance: {
+            "perfectBalance": {
             type: "SPECIAL",
             name: "Main Character Energy",
             title: "Plot Armor Holder",
             description: "Somehow balanced every flavor. The narrative has chosen you.",
-            badge: "",
+            badge: "perfectBalance",
     }
 }
 
@@ -380,8 +479,22 @@ form.addEventListener("submit", function (event) {
     <p>Title: ${bakedPizza.title}</p>
     <p>${bakedPizza.description}</p>`
 
-    console.log("Highest:", highest);
-    console.log("Second Highest:", secondHighest);
-    console.log("Dominant:", dominantTrait);
-    console.log("Second:", secondTrait);
+
+    // const badgeId = bakedPizza.badge;
+    // collectBadge(badgeId);
+
+    // console.table(badgeSave);
+
+    const badgeId = bakedPizza.badge;
+
+    collectBadge(badgeId);
+
+    console.table(saveBadge);
+    console.log("Badge ID:", badgeId);
+    console.log("Badge Object:", badges[badgeId]);
+
+    // console.log("Highest:", highest);
+    // console.log("Second Highest:", secondHighest);
+    // console.log("Dominant:", dominantTrait);
+    // console.log("Second:", secondTrait);
 });
