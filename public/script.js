@@ -1,7 +1,13 @@
 const form = document.getElementById("ingredients-list");
 const result = document.getElementById("result");
 const baked = document.getElementById("pizza-ready");
-const saveBadge = {}
+
+let saveBadge = JSON.parse(
+    localStorage.getItem("saveBadge")
+) || {};
+
+console.log(saveBadge);
+
 
     //Badges
         const badges = {
@@ -95,6 +101,8 @@ function collectBadge(badgeId){
 
         console.log(`${badges[badgeId].name} Obtained ${saveBadge[badgeId].count} times`);
     };
+
+    localStorage.setItem("saveBadge", JSON.stringify(saveBadge));
 }
 
 
@@ -197,10 +205,10 @@ form.addEventListener("submit", function (event) {
     let dominantTrait = "";
     let secondTrait = "";
     for (const trait in scores) {
-        console.log("\nChecking:", trait);
-        console.log("Score:", scores[trait]);
-        console.log("Current Highest:", highest);
-        console.log("Current Second Highest:", secondHighest);
+        // console.log("\nChecking:", trait);
+        // console.log("Score:", scores[trait]);
+        // console.log("Current Highest:", highest);
+        // console.log("Current Second Highest:", secondHighest);
         const score = scores[trait];
         if (score > highest) {
             secondHighest = highest;
@@ -473,12 +481,6 @@ form.addEventListener("submit", function (event) {
     bakedPizza = pizzaTypes["mystery"];
     }
 
-    baked.innerHTML = 
-    `<h3>Type: ${bakedPizza.type}</h3>
-    <p><b>${bakedPizza.name}</b></p>
-    <p>Title: ${bakedPizza.title}</p>
-    <p>${bakedPizza.description}</p>`
-
 
     // const badgeId = bakedPizza.badge;
     // collectBadge(badgeId);
@@ -492,6 +494,13 @@ form.addEventListener("submit", function (event) {
     console.table(saveBadge);
     console.log("Badge ID:", badgeId);
     console.log("Badge Object:", badges[badgeId]);
+
+    baked.innerHTML = 
+    `<h3>Type: ${bakedPizza.type}</h3>
+    <p><b>${bakedPizza.name}</b></p>
+    <p>Title: ${bakedPizza.title}</p>
+    <p>${bakedPizza.description}</p>
+    <h4>Badge Earned: ${badges[badgeId].name}</h4>`
 
     // console.log("Highest:", highest);
     // console.log("Second Highest:", secondHighest);
