@@ -14,7 +14,7 @@ app.listen(port, () => {
 });
 
 app.get('/', (req, res) => {
-    res.send('Welcome To Cheesy Lab!');
+    res.render("boot");
 });
 
 app.get("/lab", (req, res) => {
