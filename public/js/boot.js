@@ -60,6 +60,16 @@ const bootSequence = [
         message: "Entering Cheesy Lab.....",
         speed: 55,
         pause: 1500
+    },
+    {
+        message: "",
+        speed: 0,
+        pause: 10
+    },
+    {
+        message: "Welcome Researcher!",
+        speed: 55,
+        pause: 1500
     }
 ]
 
