@@ -1,19 +1,706 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Cheesy Lab</title>
+
     <link rel="stylesheet" href="/css/lab.css">
 </head>
+
 <body>
+
     <div class="scene">
-            <img src="/assets/background/laboratory-workstation-modified.png" alt="laboratory" class="lab-background">
-            <img src="/assets/crt/crt-pixel-art.png" alt="crt" class="crt" draggable="false">
-            <img src="/assets/crt/crt-screen-pixel-art.png" alt="crt-screen" class="crt-screen" draggable="false">
-            <img src="/assets/crt/shadows-pixel-art.png" alt="crt-shadow" class="crt-shadow" draggable="false">
+
+        <!-- COMPLETE LAB BACKGROUND -->
+
+        <img
+            src="/assets/background/laboratory-workstation-modified.png"
+            alt="Laboratory"
+            class="lab-background"
+            draggable="false"
+        >
+
+
+        <!-- CRT SHADOW -->
+
+        <img
+            src="/assets/crt/shadows-pixel-art.png"
+            alt=""
+            class="crt-shadow"
+            draggable="false"
+        >
+
+
+        <!-- CRT BODY -->
+
+        <img
+            src="/assets/crt/crt-pixel-art.png"
+            alt="CRT Monitor"
+            class="crt"
+            draggable="false"
+        >
+
+
+        <!-- CRT SCREEN -->
+
+        <div id="monitor-ui">
+
+            <!-- MAIN WINDOW -->
+
+            <div id="game-screen">
+
+                <!-- WINDOW TITLE BAR -->
+
+                <div class="os-titlebar">
+
+                    <div class="os-title">
+
+                        <span class="os-icon">🍕</span>
+
+                        <span>
+                            CHEESY OS
+                        </span>
+
+                    </div>
+
+                    <div class="os-controls">
+
+                        <span>_</span>
+                        <span>□</span>
+                        <span>×</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- APP -->
+
+                <div class="os-content">
+
+
+                    <!-- HEADER -->
+
+                    <div class="lab-header">
+
+                        <div>
+
+                            <div class="lab-title">
+                                PIZZA RESEARCH DIVISION
+                            </div>
+
+                            <div class="lab-subtitle">
+                                EXPERIMENTAL PIZZA CONSTRUCTION SYSTEM
+                            </div>
+
+                        </div>
+
+
+                        <div class="researcher-status">
+
+                            <span class="status-light"></span>
+
+                            ONLINE
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- INGREDIENTS -->
+
+                    <div class="ingredient-area">
+
+
+                        <!-- BASE -->
+
+                        <section class="ingredient-section">
+
+                            <div class="section-header">
+
+                                <span>
+                                    BASE DOUGH
+                                </span>
+
+                                <small>
+                                    SELECT ONE
+                                </small>
+
+                            </div>
+
+
+                            <div
+                                class="ingredient-grid"
+                                id="base-options"
+                            >
+
+                                <button
+                                    class="ingredient-card"
+                                    data-category="base"
+                                    data-ingredient="classic"
+                                >
+
+                                    <div class="ingredient-image">
+                                        <img
+                                            src="/assets/ingredients/classic-dough.png"
+                                            alt="Classic Dough"
+                                        >
+                                    </div>
+
+                                    <span>CLASSIC</span>
+
+                                </button>
+
+
+                                <button
+                                    class="ingredient-card"
+                                    data-category="base"
+                                    data-ingredient="stuffed"
+                                >
+
+                                    <div class="ingredient-image">
+                                        <img
+                                            src="/assets/ingredients/stuffed-dough.png"
+                                            alt="Stuffed Dough"
+                                        >
+                                    </div>
+
+                                    <span>STUFFED</span>
+
+                                </button>
+
+
+                                <button
+                                    class="ingredient-card"
+                                    data-category="base"
+                                    data-ingredient="volcano"
+                                >
+
+                                    <div class="ingredient-image">
+                                        <img
+                                            src="/assets/ingredients/volcano-dough.png"
+                                            alt="Volcano Dough"
+                                        >
+                                    </div>
+
+                                    <span>VOLCANO</span>
+
+                                </button>
+
+
+                                <button
+                                    class="ingredient-card"
+                                    data-category="base"
+                                    data-ingredient="thin"
+                                >
+
+                                    <div class="ingredient-image">
+                                        <img
+                                            src="/assets/ingredients/thin-dough.png"
+                                            alt="Thin Dough"
+                                        >
+                                    </div>
+
+                                    <span>THIN</span>
+
+                                </button>
+
+
+                                <button
+                                    class="ingredient-card"
+                                    data-category="base"
+                                    data-ingredient="charcoal"
+                                >
+
+                                    <div class="ingredient-image">
+                                        <img
+                                            src="/assets/ingredients/charcoal-dough.png"
+                                            alt="Charcoal Dough"
+                                        >
+                                    </div>
+
+                                    <span>CHARCOAL</span>
+
+                                </button>
+
+                            </div>
+
+                        </section>
+
+
+
+                        <!-- SAUCE -->
+
+                        <section class="ingredient-section">
+
+                            <div class="section-header">
+
+                                <span>
+                                    SAUCE
+                                </span>
+
+                                <small>
+                                    SELECT ONE
+                                </small>
+
+                            </div>
+
+
+                            <div
+                                class="ingredient-grid"
+                                id="sauce-options"
+                            >
+
+                                <button
+                                    class="ingredient-card"
+                                    data-category="sauce"
+                                    data-ingredient="tomato"
+                                >
+
+                                    <div class="ingredient-image">
+                                        <img
+                                            src="/assets/ingredients/tomato-sauce.png"
+                                            alt="Tomato Sauce"
+                                        >
+                                    </div>
+
+                                    <span>TOMATO</span>
+
+                                </button>
+
+
+                                <button
+                                    class="ingredient-card"
+                                    data-category="sauce"
+                                    data-ingredient="spicy"
+                                >
+
+                                    <div class="ingredient-image">
+                                        <img
+                                            src="/assets/ingredients/spicy-sauce.png"
+                                            alt="Spicy Sauce"
+                                        >
+                                    </div>
+
+                                    <span>SPICY</span>
+
+                                </button>
+
+
+                                <button
+                                    class="ingredient-card"
+                                    data-category="sauce"
+                                    data-ingredient="cream"
+                                >
+
+                                    <div class="ingredient-image">
+                                        <img
+                                            src="/assets/ingredients/cream-sauce.png"
+                                            alt="Cream Sauce"
+                                        >
+                                    </div>
+
+                                    <span>CREAM</span>
+
+                                </button>
+
+
+                                <button
+                                    class="ingredient-card"
+                                    data-category="sauce"
+                                    data-ingredient="mystery"
+                                >
+
+                                    <div class="ingredient-image">
+                                        <img
+                                            src="/assets/ingredients/mystery-sauce.png"
+                                            alt="Mystery Sauce"
+                                        >
+                                    </div>
+
+                                    <span>MYSTERY</span>
+
+                                </button>
+
+                            </div>
+
+                        </section>
+
+
+
+                        <!-- CHEESE -->
+
+                        <section class="ingredient-section">
+
+                            <div class="section-header">
+
+                                <span>
+                                    CHEESE
+                                </span>
+
+                                <small>
+                                    SELECT ONE
+                                </small>
+
+                            </div>
+
+
+                            <div
+                                class="ingredient-grid"
+                                id="cheese-options"
+                            >
+
+                                <button
+                                    class="ingredient-card"
+                                    data-category="cheese"
+                                    data-ingredient="mozzarella"
+                                >
+
+                                    <div class="ingredient-image">
+                                        <img
+                                            src="/assets/ingredients/mozzarella.png"
+                                            alt="Mozzarella"
+                                        >
+                                    </div>
+
+                                    <span>MOZZARELLA</span>
+
+                                </button>
+
+
+                                <button
+                                    class="ingredient-card"
+                                    data-category="cheese"
+                                    data-ingredient="cheddar"
+                                >
+
+                                    <div class="ingredient-image">
+                                        <img
+                                            src="/assets/ingredients/cheddar.png"
+                                            alt="Cheddar"
+                                        >
+                                    </div>
+
+                                    <span>CHEDDAR</span>
+
+                                </button>
+
+
+                                <button
+                                    class="ingredient-card"
+                                    data-category="cheese"
+                                    data-ingredient="nuclear"
+                                >
+
+                                    <div class="ingredient-image">
+                                        <img
+                                            src="/assets/ingredients/nuclear-cheese.png"
+                                            alt="Nuclear Cheese"
+                                        >
+                                    </div>
+
+                                    <span>NUCLEAR</span>
+
+                                </button>
+
+                            </div>
+
+                        </section>
+
+
+
+                        <!-- TOPPINGS -->
+
+                        <section class="ingredient-section">
+
+                            <div class="section-header">
+
+                                <span>
+                                    TOPPINGS
+                                </span>
+
+                                <small>
+                                    MULTIPLE
+                                </small>
+
+                            </div>
+
+
+                            <div
+                                class="ingredient-grid"
+                                id="topping-options"
+                            >
+
+                                <button
+                                    class="ingredient-card topping"
+                                    data-category="topping"
+                                    data-ingredient="pepperoni"
+                                >
+
+                                    <div class="ingredient-image">
+                                        <img
+                                            src="/assets/ingredients/pepperoni.png"
+                                            alt="Pepperoni"
+                                        >
+                                    </div>
+
+                                    <span>PEPPERONI</span>
+
+                                </button>
+
+
+                                <button
+                                    class="ingredient-card topping"
+                                    data-category="topping"
+                                    data-ingredient="mushroom"
+                                >
+
+                                    <div class="ingredient-image">
+                                        <img
+                                            src="/assets/ingredients/mushroom.png"
+                                            alt="Mushroom"
+                                        >
+                                    </div>
+
+                                    <span>MUSHROOM</span>
+
+                                </button>
+
+
+                                <button
+                                    class="ingredient-card topping"
+                                    data-category="topping"
+                                    data-ingredient="pineapple"
+                                >
+
+                                    <div class="ingredient-image">
+                                        <img
+                                            src="/assets/ingredients/pineapple.png"
+                                            alt="Pineapple"
+                                        >
+                                    </div>
+
+                                    <span>PINEAPPLE</span>
+
+                                </button>
+
+
+                                <button
+                                    class="ingredient-card topping"
+                                    data-category="topping"
+                                    data-ingredient="olive"
+                                >
+
+                                    <div class="ingredient-image">
+                                        <img
+                                            src="/assets/ingredients/olive.png"
+                                            alt="Olive"
+                                        >
+                                    </div>
+
+                                    <span>OLIVE</span>
+
+                                </button>
+
+                            </div>
+
+                        </section>
+
+
+
+                        <!-- SEASONING -->
+
+                        <section class="ingredient-section">
+
+                            <div class="section-header">
+
+                                <span>
+                                    SEASONING
+                                </span>
+
+                                <small>
+                                    SELECT ONE
+                                </small>
+
+                            </div>
+
+
+                            <div
+                                class="ingredient-grid"
+                                id="seasoning-options"
+                            >
+
+                                <button
+                                    class="ingredient-card"
+                                    data-category="seasoning"
+                                    data-ingredient="chili"
+                                >
+
+                                    <div class="ingredient-image">
+                                        <img
+                                            src="/assets/ingredients/chili.png"
+                                            alt="Chili"
+                                        >
+                                    </div>
+
+                                    <span>CHILI</span>
+
+                                </button>
+
+
+                                <button
+                                    class="ingredient-card"
+                                    data-category="seasoning"
+                                    data-ingredient="herbs"
+                                >
+
+                                    <div class="ingredient-image">
+                                        <img
+                                            src="/assets/ingredients/herbs.png"
+                                            alt="Herbs"
+                                        >
+                                    </div>
+
+                                    <span>HERBS</span>
+
+                                </button>
+
+
+                                <button
+                                    class="ingredient-card"
+                                    data-category="seasoning"
+                                    data-ingredient="chaos-dust"
+                                >
+
+                                    <div class="ingredient-image">
+                                        <img
+                                            src="/assets/ingredients/chaos-dust.png"
+                                            alt="Chaos Dust"
+                                        >
+                                    </div>
+
+                                    <span>CHAOS</span>
+
+                                </button>
+
+                            </div>
+
+                        </section>
+
+                    </div>
+
+
+
+                    <!-- FOOTER -->
+
+                    <div class="os-footer">
+
+                        <div id="selection-status">
+
+                            SYSTEM READY —
+                            AWAITING INGREDIENTS
+
+                        </div>
+
+
+                        <button
+                            id="bake-button"
+                            type="button"
+                        >
+
+                            BAKE PIZZA
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+           <!-- BAKE TERMINAL -->
+
+            <div id="bake-screen">
+
+                <div id="bake-terminal">
+
+                    <div class="terminal-bar">
+
+                        CHEESY OS // OVEN PROCESS
+
+                    </div>
+
+
+                    <div id="bake-output"></div>
+
+
+                    <span id="bake-cursor">
+                        █
+                    </span>
+
+                </div>
+
+
+                <!-- RESULT -->
+
+                <div id="result-panel">
+
+                    <div class="result-header">
+                        EXPERIMENT COMPLETE
+                    </div>
+
+
+                    <div id="pizza-result">
+                        UNKNOWN PIZZA
+                    </div>
+
+
+                    <div id="pizza-description">
+                        Taste matrix analysis complete.
+                    </div>
+
+
+                    <div id="badge-result">
+
+                        <div class="badge-header">
+                            BADGE UNLOCKED
+                        </div>
+
+                        <div id="badge-name">
+                            —
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        id="continue-button"
+                        type="button"
+                    >
+                        RETURN TO LAB
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <script src="/script.js"></script>
+
+    <!-- Existing game engine -->
+    <script src="/js/script.js"></script>
+
+    <!-- UI layer -->
+    <script src="/js/game-ui.js"></script>
+
 </body>
+
 </html>
