@@ -164,3 +164,19 @@ body{
 
 }
 
+
+
+/* BOOT TO LAB TRANSITION */
+
+#boot-screen{
+    transition: opacity 0.65s ease ,
+    transform 0.65s ease;
+    
+    transform-origin: center;
+}
+
+#boot-screen.leaving{
+
+    opacity: 0;
+    transform: scale(1.03);
+}

@@ -1,19 +1,819 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cheesy Lab</title>
+    
     <link rel="stylesheet" href="/css/lab.css">
 </head>
+
+
 <body>
+
     <div class="scene">
-            <img src="/assets/background/laboratory-workstation-modified.png" alt="laboratory" class="lab-background">
-            <img src="/assets/crt/crt-pixel-art.png" alt="crt" class="crt" draggable="false">
-            <img src="/assets/crt/crt-screen-pixel-art.png" alt="crt-screen" class="crt-screen" draggable="false">
-            <img src="/assets/crt/shadows-pixel-art.png" alt="crt-shadow" class="crt-shadow" draggable="false">
+
+        <!-- Complete Laboratory -->
+        <img
+            src="/assets/background/laboratory-workstation-modified.png"
+            class="lab-background"
+            alt="Cheesy Lab"
+            draggable="false"
+        >
+
+        <!-- CRT -->
+        <img
+            src="/assets/crt/crt-pixel-art.png"
+            class="crt"
+            alt="CRT Monitor"
+            draggable="false"
+        >
+
+        <img
+            src="/assets/crt/shadows-pixel-art.png"
+            class="crt-shadow"
+            alt=""
+            draggable="false"
+        >
+
+        <!-- CHEESY OS -->
+
+        <div class="cheesy-os">
+
+            <!-- Window Title Bar -->
+
+            <div class="window-title">
+                <div class="window-title-left">
+
+                    <span class="window-icon">
+                        🧀
+                    </span>
+
+                    <span>
+                        CHEESY OS
+                    </span>
+
+                </div>
+
+                <!-- Window Control Button -->
+
+                <div class="windows-buttons">
+
+                    <button type="button">_</button>
+                    <button type="button">□</button>
+                    <button type="button">×</button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Main Game Window -->
+
+            <div
+                class="window-body"
+                id="game-interface"
+            >
+
+
+                <!-- HEADER -->
+
+                <div class="os-header">
+                    <div>
+
+                        <h1>
+                            PIZZA RESEARCH DIVISION
+                        </h1>
+
+                        <p>
+                            EXPERIMENTAL INGREDIENT ASSEMBLY SYSTEM
+                        </p>
+
+                    </div>
+
+
+                    <div class="system-status">
+
+                        <span class="status-light"></span>
+
+                        SYSTEM ONLINE
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Base Dough -->
+
+                <section class="ingredient-section">
+                    <div class="section-header">
+
+                        <span>
+                            BASE DOUGH
+                        </span>
+
+                        <small>
+                            SELECT ONE
+                        </small>
+
+                    </div>
+
+
+                    <div class="ingredient-grid">
+
+                        <div
+                            class="ingredient"
+                            data-category="crust"
+                            data-id="classic"
+                            data-value="Classic Dough"
+                        >
+
+                            <img
+                                src="/assets/ingredients/classic-crust-pxart-v2.png"
+                                alt="Classic Dough"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Classic
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="ingredient"
+                            data-category="crust"
+                            data-id="stuffed"
+                            data-value="Stuffed Crust"
+                        >
+
+                            <img
+                                src="/assets/ingredients/stuffed-crust-pxart.png"
+                                alt="Stuffed Crust"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Stuffed
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="ingredient"
+                            data-category="crust"
+                            data-id="volcano"
+                            data-value="Volcano Crust"
+                        >
+
+                            <img
+                                src="/assets/ingredients/volcano-crust-pxart.png"
+                                alt="Volcano Crust"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Volcano
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="ingredient"
+                            data-category="crust"
+                            data-id="thin"
+                            data-value="Thin Crust"
+                        >
+
+                            <img
+                                src="/assets/ingredients/thin-crust-pxart.png"
+                                alt="Thin Crust"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Thin
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="ingredient"
+                            data-category="crust"
+                            data-id="charcoal"
+                            data-value="Charcoal Dough"
+                        >
+
+                            <img
+                                src="/assets/ingredients/charcoal-crust-pxart.png"
+                                alt="Charcoal Dough"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Charcoal
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+                <!-- Sauce -->
+
+                <section class="ingredient-section">
+
+                    <div class="section-header">
+
+                        <span>
+                            SAUCE
+                        </span>
+
+                        <small>
+                            SELECT ONE
+                        </small>
+
+                    </div>
+
+
+                    <div class="ingredient-grid">
+
+
+                        <div
+                            class="ingredient"
+                            data-category="sauce"
+                            data-id="tomato"
+                            data-value="Tomato"
+                        >
+
+                            <img
+                                src="/assets/ingredients/tomato-sauce-pxart.png"
+                                alt="Tomato"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Tomato
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="ingredient"
+                            data-category="sauce"
+                            data-id="lava"
+                            data-value="Lava"
+                        >
+
+                            <img
+                                src="/assets/ingredients/lava-sauce-pxart.png"
+                                alt="Lava"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Lava
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="ingredient"
+                            data-category="sauce"
+                            data-id="mushroom"
+                            data-value="Mushroom"
+                        >
+
+                            <img
+                                src="/assets/ingredients/mushroom-sauce-pxart.png"
+                                alt="Mushroom"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Mushroom
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="ingredient"
+                            data-category="sauce"
+                            data-id="mystery"
+                            data-value="Mystery"
+                        >
+
+                            <img
+                                src="/assets/ingredients/mystery-sauce-pxart.png"
+                                alt="Mystery"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Mystery
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="ingredient"
+                            data-category="sauce"
+                            data-id="bbq"
+                            data-value="BBQ"
+                        >
+
+                            <img
+                                src="/assets/ingredients/bbq-sauce-pxart.png"
+                                alt="BBQ"
+                                draggable="false"
+                            >
+
+                            <span>
+                                BBQ
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+                <!-- Cheese -->
+
+                <section class="ingredient-section">
+
+                    <div class="section-header">
+
+                        <span>
+                            CHEESE
+                        </span>
+
+                        <small>
+                            SELECT ONE
+                        </small>
+
+                    </div>
+
+
+                    <div class="ingredient-grid">
+
+
+                        <div
+                            class="ingredient"
+                            data-category="cheese"
+                            data-id="mozzarella"
+                            data-value="Mozzarella"
+                        >
+
+                            <img
+                                src="/assets/ingredients/mozzarella-cover-pxart.png"
+                                alt="Mozzarella"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Mozzarella
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="ingredient"
+                            data-category="cheese"
+                            data-id="cheddar"
+                            data-value="Cheddar"
+                        >
+
+                            <img
+                                src="/assets/ingredients/cheddar-cheese-cover-pxart.png"
+                                alt="Cheddar"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Cheddar
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="ingredient"
+                            data-category="cheese"
+                            data-id="nuclear"
+                            data-value="Nuclear Cheese"
+                        >
+
+                            <img
+                                src="/assets/ingredients/nuclear-cheese-cover-pxart.png"
+                                alt="Nuclear Cheese"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Nuclear Cheese
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="ingredient"
+                            data-category="cheese"
+                            data-id="paneer"
+                            data-value="Paneer"
+                        >
+
+                            <img
+                                src="/assets/ingredients/paneer-cheese-cover-pxart.png"
+                                alt="Paneer"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Paneer
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="ingredient"
+                            data-category="cheese"
+                            data-id="parmesan"
+                            data-value="Parmesan"
+                        >
+
+                            <img
+                                src="/assets/ingredients/parmesan-cheese-cover-pxart.png"
+                                alt="Parmesan"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Parmesan
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+                <!-- Toppings -->
+
+                <section class="ingredient-section">
+
+                    <div class="section-header">
+
+                        <span>
+                            TOPPINGS
+                        </span>
+
+                        <small>
+                            MULTIPLE
+                        </small>
+
+                    </div>
+
+
+                    <div class="ingredient-grid">
+
+
+                        <div
+                            class="ingredient"
+                            data-category="topping"
+                            data-id="pepperoni"
+                            data-value="Pepperoni"
+                        >
+
+                            <img
+                                src="/assets/ingredients/pepperoni-cover-pxart.png"
+                                alt="Pepperoni"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Pepperoni
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="ingredient"
+                            data-category="topping"
+                            data-id="mushroom"
+                            data-value="Mushroom"
+                        >
+
+                            <img
+                                src="/assets/ingredients/mushroom-topping-pxart.png"
+                                alt="Mushroom"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Mushroom
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="ingredient"
+                            data-category="topping"
+                            data-id="pineapple"
+                            data-value="Pineapple"
+                        >
+
+                            <img
+                                src="/assets/ingredients/pineapple-topping-pxart.png"
+                                alt="Pineapple"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Pineapple
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="ingredient"
+                            data-category="topping"
+                            data-id="olives"
+                            data-value="Olives"
+                        >
+
+                            <img
+                                src="/assets/ingredients/olives-toppings-pxart.png"
+                                alt="Olives"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Olives
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="ingredient"
+                            data-category="topping"
+                            data-id="chicken"
+                            data-value="Chicken"
+                        >
+
+                            <img
+                                src="/assets/ingredients/chicken-topping-pxart.png"
+                                alt="Chicken"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Chicken
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+                <!-- Seasonings -->
+
+                <section class="ingredient-section">
+
+                    <div class="section-header">
+
+                        <span>
+                            SEASONING
+                        </span>
+
+                        <small>
+                            SELECT ONE
+                        </small>
+
+                    </div>
+
+
+                    <div class="ingredient-grid">
+
+
+                        <div
+                            class="ingredient"
+                            data-category="seasoning"
+                            data-id="chilli"
+                            data-value="Chilli Flakes"
+                        >
+
+                            <img
+                                src="/assets/ingredients/chilli-flakes-seasoning-pxart.png"
+                                alt="Chilli Flakes"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Chilli Flakes
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="ingredient"
+                            data-category="seasoning"
+                            data-id="oregano"
+                            data-value="Oregano"
+                        >
+
+                            <img
+                                src="/assets/ingredients/oregano-seasoning-pxart.png"
+                                alt="Oregano"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Oregano
+                            </span>
+
+                        </div>
+
+                        <div
+                            class="ingredient"
+                            data-category="seasoning"
+                            data-id="black-pepper"
+                            data-value="Black Pepper"
+                        >
+
+                            <img
+                                src="/assets/ingredients/black-pepper-pxart.png"
+                                alt="Black Pepper"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Black Pepper
+                            </span>
+
+                        </div>
+
+                        <div
+                            class="ingredient"
+                            data-category="seasoning"
+                            data-id="chaos-dust"
+                            data-value="Chaos Dust"
+                        >
+
+                            <img
+                                src="/assets/ingredients/chaos-dust-seasonings-pxart.png"
+                                alt="Chaos Dust"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Chaos Dust
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="ingredient"
+                            data-category="seasoning"
+                            data-id="garlic-dust"
+                            data-value="Garlic Dust"
+                        >
+
+                            <img
+                                src="/assets/ingredients/garlic-dust-seasoning-pxart.png"
+                                alt="Garlic Dust"
+                                draggable="false"
+                            >
+
+                            <span>
+                                Garlic Dust
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+                <!-- FOOTER -->
+
+                <div class="bottom-bar">
+
+                    <div class="selection-status">
+
+                        <span>
+                            READY
+                        </span>
+
+                        <small>
+                            SELECT ALL REQUIRED INGREDIENTS
+                        </small>
+
+                    </div>
+
+
+                    <button
+                        id="bake-button"
+                        type="button"
+                        disabled
+                    >
+                        BAKE PIZZA
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- RESULT -->
+
+            <div
+                id="result-view"
+                hidden
+            >
+
+                <div id="result-terminal-title">
+                    CHEESY OS // OVEN CONTROL
+                </div>
+
+                <pre id="bake-output"></pre>
+
+                <div id="result-card">
+
+                    <div id="result-type">
+                        TYPE
+                    </div>
+
+                    <div id="pizza-result">
+                        PIZZA
+                    </div>
+
+                    <div id="pizza-title">
+                        TITLE
+                    </div>
+
+                    <div id="pizza-description">
+                        DESCRIPTION
+                    </div>
+
+                    <div id="badge-result">
+
+                        <small>
+                            BADGE EARNED
+                        </small>
+
+                        <strong id="badge-name">
+                            BADGE
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        id="continue-button"
+                        type="button"
+                    >
+                        RETURN TO LAB
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
     </div>
 
-    <script src="/script.js"></script>
+
+    <script src="/js/script.js"></script>
+    <script src="/js/game-ui.js"></script>
+    <script src="/js/transition.js"></script>
+
 </body>
 </html>

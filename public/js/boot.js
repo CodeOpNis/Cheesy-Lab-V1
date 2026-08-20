@@ -105,7 +105,7 @@ if(currentCharacter >= current.message.length){
 }
 
 function revealCRT(){
-    
+    goToLab();
 }
 
 typeCharacter();
