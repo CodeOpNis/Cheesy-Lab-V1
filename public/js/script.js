@@ -417,7 +417,7 @@ const secretRecipe = {
 
     "top-secret-4": {
         type: "EPIC",
-        name: "The Italian Nightmare",
+        name: "The Italian Nightmare (Ultra Rare Edition)",
         title: "Banished By Italy, Wanted By All",
         description: "Somewhere, a chef just felt a disturbance in the force.",
         badge: "italian-nightmare"
