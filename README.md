@@ -17,7 +17,7 @@ Combining these Ingredients to bake different pizzas, gives quirky badges, fabul
 
 The pixel art adds life into the lab... The CheesyOS is the place where the user actually conducts the experiment, and see the consequences of their action!
 
-<i>Play Here:</i> <a href="https://cheesy-lab-v1.vercel.app/">Cheesy Lab V1 🧀</a>
+<i>Play Here:</i> <a href="https://cheesy-lab-v1.vercel.app/" target="_blank" rel="noopener noreferrer">Cheesy Lab V1 🧀</a>
 
 
 <h2>Why I made this?</h2>
